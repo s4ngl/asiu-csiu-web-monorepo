@@ -17,8 +17,17 @@ import { createLocalMidnightISO } from "@/lib/utils"
 export const metadata = getPageMetadata("home")
 
 export default async function HomePage() {
-  const pastEvents = await getPastEvents()
-  const upcomingEvents = await getUpcomingEvents()
+  // Temporarily handle case where Sanity data might not be available
+  let pastEvents: Event[] = []
+  let upcomingEvents: Event[] = []
+  
+  try {
+    pastEvents = await getPastEvents()
+    upcomingEvents = await getUpcomingEvents()
+  } catch (error) {
+    console.warn('Could not fetch events data:', error)
+    // Use empty arrays as fallback
+  }
 
   // Generate event schema for featured upcoming events on home page
   const featuredEventSchemas = upcomingEvents.slice(0, 3).map((event: Event) => {
@@ -45,13 +54,14 @@ export default async function HomePage() {
 
   return (
     <>
+      {/* Temporarily disable structured data and event schemas */}
+      {/*
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(getStructuredData("home"))
         }}
       />
-      {/* Featured Event Schemas */}
       {featuredEventSchemas.map((schema: any, index: number) => (
         <script
           key={index}
@@ -61,6 +71,7 @@ export default async function HomePage() {
           }}
         />
       ))}
+      */}
       <LayoutWrapper>
         {/* Hero Section */}
         <HeroSection
