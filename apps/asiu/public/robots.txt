@@ -1,0 +1,43 @@
+User-agent: *
+Allow: /
+
+# Sitemap locations - multiple sitemaps for better organization
+Sitemap: https://www.advocatesforscienceatiu.org/sitemap.xml
+Sitemap: https://www.advocatesforscienceatiu.org/sitemap-news.xml
+Sitemap: https://www.advocatesforscienceatiu.org/sitemap-events.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow admin, private areas, and API endpoints
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /vercel.svg
+Disallow: /next.svg
+
+# Disallow duplicate content (if any query parameters create duplicates)
+Disallow: /*?utm_source=*
+Disallow: /*?utm_medium=*
+Disallow: /*?utm_campaign=*
+Disallow: /*?utm_term=*
+Disallow: /*?utm_content=*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+
+# Allow important static resources
+Allow: /icons/
+Allow: /images/
+Allow: /manifest.json
+Allow: /*.css
+Allow: /*.js
+
+# Explicitly allow all main content areas
+Allow: /about
+Allow: /news
+Allow: /get-involved
+Allow: /team
+Allow: /contact
+Allow: /privacy
+Allow: /accessibility

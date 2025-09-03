@@ -1,0 +1,29 @@
+# robots.txt for Concerned Scientists @ IU (CSIU)
+# https://www.csiub.org
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.csiub.org/sitemap.xml
+Sitemap: https://www.csiub.org/sitemap-news.xml
+Sitemap: https://www.csiub.org/sitemap-events.xml
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow important pages
+Allow: /about/
+Allow: /contact/
+Allow: /get-involved/
+Allow: /news/
+Allow: /team/
+Allow: /accessibility/
+Allow: /privacy/
+
+# Crawl delay (optional)
+Crawl-delay: 1

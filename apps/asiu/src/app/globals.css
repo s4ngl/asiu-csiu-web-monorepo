@@ -1,0 +1,394 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Updated custom color variables to match new brand colors */
+  --color-red: #993333; /* Brand red */
+  --color-blue: #2e6399; /* Brand blue */
+  --color-green: #257d70; /* Brand green */
+  --color-black: #2a2a2a; /* Brand black */
+
+  /* Updated custom secondary color variables to match new brand colors */
+  --color-yellow: #998a2e;  /* Brand yellow */
+  --color-orange: #99612e;  /* Brand orange */
+  --color-purple: #5f2e99;  /* Brand purple */
+  --color-teal: #2e9999;    /* Brand teal */
+  --color-pink: #992e61;    /* Brand pink */
+
+  --color-brown: #664422;   /* Brand brown */
+  --color-cyan: #2e7a99;    /* Brand cyan */
+  --color-lime: #66992e;    /* Brand lime */
+  --color-magenta: #992e7a; /* Brand magenta */
+  --color-olive: #667a2e;   /* Brand olive */
+  --color-indigo: #2e3a99;  /* Brand indigo */
+  --color-sand: #99855c;    /* Brand sand / beige */
+  --color-slate: #3d4c66;   /* Brand slate / gray-blue */
+
+  /* Updated typography variables for Poppins */
+  --font-heading: var(--font-poppins);
+  --font-body: var(--font-poppins);
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Updated utility classes for new brand colors */
+@layer utilities {
+  .text-science-red {
+    color: var(--color-red);
+  }
+  .text-science-blue {
+    color: var(--color-blue);
+  }
+  .text-science-green {
+    color: var(--color-green);
+  }
+  .text-science-black {
+    color: var(--color-black);
+  }
+  .bg-science-red {
+    background-color: var(--color-red);
+  }
+  .bg-science-blue {
+    background-color: var(--color-blue);
+  }
+  .bg-science-green {
+    background-color: var(--color-green);
+  }
+  .bg-science-black {
+    background-color: var(--color-black);
+  }
+  .border-science-blue {
+    border-color: var(--color-blue);
+  }
+
+  /* Secondary color text utilities */
+  .text-science-yellow {
+    color: var(--color-yellow);
+  }
+  .text-science-orange {
+    color: var(--color-orange);
+  }
+  .text-science-purple {
+    color: var(--color-purple);
+  }
+  .text-science-teal {
+    color: var(--color-teal);
+  }
+  .text-science-pink {
+    color: var(--color-pink);
+  }
+  .text-science-brown {
+    color: var(--color-brown);
+  }
+  .text-science-cyan {
+    color: var(--color-cyan);
+  }
+  .text-science-lime {
+    color: var(--color-lime);
+  }
+  .text-science-magenta {
+    color: var(--color-magenta);
+  }
+  .text-science-olive {
+    color: var(--color-olive);
+  }
+  .text-science-indigo {
+    color: var(--color-indigo);
+  }
+  .text-science-sand {
+    color: var(--color-sand);
+  }
+  .text-science-slate {
+    color: var(--color-slate);
+  }
+
+  /* Secondary color background utilities */
+  .bg-science-yellow {
+    background-color: var(--color-yellow);
+  }
+  .bg-science-orange {
+    background-color: var(--color-orange);
+  }
+  .bg-science-purple {
+    background-color: var(--color-purple);
+  }
+  .bg-science-teal {
+    background-color: var(--color-teal);
+  }
+  .bg-science-pink {
+    background-color: var(--color-pink);
+  }
+  .bg-science-brown {
+    background-color: var(--color-brown);
+  }
+  .bg-science-cyan {
+    background-color: var(--color-cyan);
+  }
+  .bg-science-lime {
+    background-color: var(--color-lime);
+  }
+  .bg-science-magenta {
+    background-color: var(--color-magenta);
+  }
+  .bg-science-olive {
+    background-color: var(--color-olive);
+  }
+  .bg-science-indigo {
+    background-color: var(--color-indigo);
+  }
+  .bg-science-sand {
+    background-color: var(--color-sand);
+  }
+  .bg-science-slate {
+    background-color: var(--color-slate);
+  }
+
+  /* Hover variants for science colors */
+  .hover\:bg-science-blue:hover {
+    background-color: var(--color-blue);
+  }
+  .hover\:bg-science-green:hover {
+    background-color: var(--color-green);
+  }
+  .hover\:bg-science-red:hover {
+    background-color: var(--color-red);
+  }
+
+  /* Hover text color variants for science colors */
+  .hover\:text-science-blue:hover {
+    color: var(--color-blue);
+  }
+  .hover\:text-science-green:hover {
+    color: var(--color-green);
+  }
+  .hover\:text-science-red:hover {
+    color: var(--color-red);
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  /* Added standardized card shadow utility */
+  .card-shadow {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  /* Button hover styles - darken only background, preserve text */
+  .btn-filled:hover {
+    filter: brightness(0.85);
+    transition: filter 0.2s ease;
+    transform: none !important;
+    scale: none !important;
+    animation: none !important;
+  }
+
+  /* Ensure proper scrolling on mobile devices */
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  /* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for Firefox */
+  html {
+    scrollbar-width: none;
+  }
+
+  /* Hide scrollbar for IE/Edge */
+  html {
+    -ms-overflow-style: none;
+  }
+
+  /* Hide scrollbar utility class */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-5 {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Prevent any fixed positioning issues on mobile */
+  @media (max-width: 768px) {
+    html, body {
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  /* Custom arrow bounce animation for scroll indicator */
+  @keyframes arrowBounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-4px);
+    }
+    60% {
+      transform: translateY(-2px);
+    }
+  }
+
+  /* Hexagon clip-path for committee icons */
+  .clip-hexagon {
+    clip-path: polygon(
+  50% 0%,        /* Top */
+  100% 25%,      /* Top right */
+  100% 75%,      /* Bottom right */
+  50% 100%,      /* Bottom */
+  0% 75%,        /* Bottom left */
+  0% 25%         /* Top left */
+);
+
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Updated font classes to use Poppins with fallbacks */
+  --font-sans: var(--font-poppins), "Roboto", "Helvetica Neue", sans-serif;
+  --font-serif: var(--font-poppins), "Roboto", "Helvetica Neue", sans-serif;
+}

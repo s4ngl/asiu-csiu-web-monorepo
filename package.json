@@ -1,0 +1,33 @@
+{
+  "name": "my-turborepo",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-types": "turbo run check-types",
+    "dev:asiu": "turbo dev --filter=asiu",
+    "dev:csiu": "turbo dev --filter=csiu",
+    "dev:cms": "turbo dev --filter=cms",
+    "build:asiu": "turbo build --filter=asiu",
+    "build:csiu": "turbo build --filter=csiu",
+    "build:cms": "turbo build --filter=cms"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.6",
+    "typescript": "5.9.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "npm@11.5.2",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "critters": "^0.0.23"
+  }
+}
