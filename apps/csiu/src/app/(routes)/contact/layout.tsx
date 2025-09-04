@@ -12,7 +12,7 @@ export default function ContactLayout({
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(getStructuredData("contact"))
+                    __html: JSON.stringify(getStructuredData("organization"))
                 }}
             />
             {children}

@@ -102,7 +102,7 @@ export default async function GetInvolvedPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getStructuredData("getInvolved"))
+          __html: JSON.stringify(getStructuredData("organization"))
         }}
       />
       {/* Event Schemas */}

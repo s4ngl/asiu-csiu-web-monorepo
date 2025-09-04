@@ -32,7 +32,7 @@ export default async function TeamPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getStructuredData("team"))
+          __html: JSON.stringify(getStructuredData("organization"))
         }}
       />
       <LayoutWrapper>

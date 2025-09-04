@@ -37,7 +37,7 @@ export default async function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getStructuredData("about"))
+          __html: JSON.stringify(getStructuredData("organization"))
         }}
       />
       <script

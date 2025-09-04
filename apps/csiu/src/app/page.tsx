@@ -20,7 +20,7 @@ export default async function HomePage() {
   // Temporarily handle case where Sanity data might not be available
   let pastEvents: Event[] = []
   let upcomingEvents: Event[] = []
-  
+
   try {
     pastEvents = await getPastEvents()
     upcomingEvents = await getUpcomingEvents()
@@ -72,6 +72,12 @@ export default async function HomePage() {
         />
       ))}
       */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getStructuredData("organization"))
+        }}
+      />
       <LayoutWrapper>
         {/* Hero Section */}
         <HeroSection
