@@ -8,6 +8,17 @@ import { Menu, X } from "lucide-react"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  // Handle scroll effect for transparent/solid background
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100)
+    }
+    
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Prevent scroll when menu is open
   useEffect(() => {
@@ -23,139 +34,121 @@ export function Navigation() {
   }, [isOpen])
 
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    // { href: "/events", label: "Events" },
-    { href: "/news", label: "News" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: "HOME" },
+    { href: "/about", label: "ABOUT" },
+    { href: "/news", label: "NEWS" },
+    { href: "/contact", label: "CONTACT" },
   ]
 
   return (
-    <header className="bg-gray-900 sticky top-0 z-50" role="banner">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo and Navigation */}
-          <div className="flex items-center justify-between w-full">
-            <div className="flex items-center space-x-8">
-              {/* Logo */}
-              <Link href="/" className="flex items-center space-x-2" aria-label="Concerned Scientists @ IU Homepage">
-                <div className="absolute -top-8 w-20 h-24 bg-white flex flex-col items-center justify-start pt-1">
-                  <div className="w-18 h-22 bg-science-blue rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-xs text-center leading-tight">CSIU</span>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Desktop Navigation */}
-              <nav className="hidden md:flex items-center space-x-6" role="navigation" aria-label="Main navigation">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-white hover:text-red transition-colors duration-200 font-medium"
-                    aria-label={`Navigate to ${item.label} page`}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                <Button size="sm" variant="outline" asChild>
-                  <Link href="/get-involved" aria-label="Get involved with Concerned Scientists @ IU">Get Involved</Link>
-                </Button>
-                <Button size="sm" className="bg-science-red text-white" asChild>
-                  <a
-                    href="https://www.facebook.com/CSIUB/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Visit Concerned Scientists @ IU Facebook page (opens in new tab)"
-                  >
-                    Facebook
-                  </a>
-                </Button>
-              </nav>
+    <header 
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ease-in-out ${
+        isScrolled ? 'bg-csiu-primary-dark shadow-lg' : 'bg-transparent'
+      }`} 
+      style={{ height: '80px' }}
+      role="banner"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 h-full">
+        <div className="flex justify-between items-center h-full">
+          {/* Logo */}
+          <Link href="/" className="flex items-center" aria-label="Concerned Scientists @ IU Homepage">
+            <div className="flex items-center justify-center bg-csiu-white px-4 py-2" style={{ maxHeight: '40px' }}>
+              <span className="text-csiu-primary-dark font-bold text-lg tracking-wider">CSIU</span>
             </div>
+          </Link>
 
-            {/* Mobile buttons and menu */}
-            <div className="md:hidden flex items-center space-x-2">
-              <Button size="sm" className="bg-science-blue text-white text-xs px-2 py-1" asChild>
-                <Link href="/get-involved" aria-label="Get involved">Get Involved</Link>
-              </Button>
-              <Button size="sm" className="bg-science-red text-white text-xs px-2 py-1" asChild>
-                <a
-                  href="https://www.facebook.com/CSIUB/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Donate (opens in new tab)"
-                >
-                  Facebook
-                </a>
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-white ml-2 relative"
-                aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-                aria-expanded={isOpen}
-                aria-controls="mobile-menu"
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-csiu-white hover:text-csiu-accent-primary transition-colors duration-300 font-medium uppercase tracking-wide text-sm"
+                aria-label={`Navigate to ${item.label} page`}
               >
-                <div className="relative w-3 h-5">
-                  <Menu
-                    className={`-left-0.5 top-0.5 absolute inset-0 transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0 rotate-90 scale-150' : 'opacity-100 rotate-0 scale-175'
-                      }`}
-                  />
-                  <X
-                    className={`-left-0.5 top-0.5 absolute inset-0 transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 rotate-0 scale-150' : 'opacity-0 -rotate-90 scale-175'
-                      }`}
-                  />
-                </div>
-              </Button>
-            </div>
+                {item.label}
+              </Link>
+            ))}
+            <Button className="btn-csiu-primary" asChild>
+              <Link href="/get-involved" aria-label="Get involved with Concerned Scientists @ IU">
+                GET INVOLVED
+              </Link>
+            </Button>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-csiu-white hover:bg-transparent p-2"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+            >
+              <div className="relative w-6 h-6">
+                <Menu
+                  className={`absolute inset-0 transition-all duration-300 ease-in-out ${
+                    isOpen ? 'opacity-0 rotate-90 scale-0' : 'opacity-100 rotate-0 scale-100'
+                  }`}
+                />
+                <X
+                  className={`absolute inset-0 transition-all duration-300 ease-in-out ${
+                    isOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-0'
+                  }`}
+                />
+              </div>
+            </Button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Full Screen Overlay */}
         <nav
-          className={`md:hidden fixed inset-0 bg-gray-900 transition-all duration-500 ease-in-out ${isOpen
-            ? 'opacity-100 visible z-[60]'
-            : 'opacity-0 invisible pointer-events-none z-[60]'
-            }`}
+          className={`md:hidden fixed inset-0 bg-csiu-primary-dark transition-all duration-500 ease-in-out ${
+            isOpen
+              ? 'opacity-100 visible z-[60]'
+              : 'opacity-0 invisible pointer-events-none z-[60]'
+          }`}
           role="navigation"
           aria-label="Mobile navigation"
           id="mobile-menu"
         >
           <div className="flex flex-col h-full">
             {/* Close button */}
-            <div className={`flex justify-end p-4 transition-all duration-500 ease-out ${isOpen
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 -translate-y-8'
-              }`}
-              style={{
-                transitionDelay: isOpen ? '100ms' : '0ms'
-              }}
+            <div className={`flex justify-end p-6 transition-all duration-500 ease-out ${
+              isOpen
+                ? 'opacity-100 translate-x-0'
+                : 'opacity-0 translate-x-8'
+            }`}
+            style={{
+              transitionDelay: isOpen ? '100ms' : '0ms'
+            }}
             >
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(false)}
-                className="text-white"
+                className="text-csiu-white hover:bg-transparent p-3"
                 aria-label="Close navigation menu"
               >
-                <X className="scale-150" />
+                <X className="w-8 h-8" />
               </Button>
             </div>
 
-            {/* Navigation items */}
-            <div className="flex-1 flex flex-col justify-center items-center space-y-8 px-4">
+            {/* Navigation items - Centered */}
+            <div className="flex-1 flex flex-col justify-center items-center space-y-12 px-4">
               {navItems.map((item, index) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-white text-2xl hover:text-gray-500 font-medium hover:text-science-blue transition-all duration-200 ease-out ${isOpen
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-8'
-                    }`}
+                  className={`text-csiu-white text-4xl font-medium uppercase tracking-wider hover:text-csiu-accent-primary transition-all duration-300 ease-out ${
+                    isOpen
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-8'
+                  }`}
                   style={{
-                    transitionDelay: isOpen ? `${index * 100}ms` : '0ms'
+                    transitionDelay: isOpen ? `${index * 100 + 200}ms` : '0ms'
                   }}
                   onClick={() => setIsOpen(false)}
                   aria-label={`Navigate to ${item.label} page`}
@@ -164,27 +157,20 @@ export function Navigation() {
                 </Link>
               ))}
 
-              {/* Mobile action buttons */}
-              <div className={`flex flex-col space-y-4 mt-8 transition-all duration-500 ease-out ${isOpen
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-8'
-                }`}
-                style={{
-                  transitionDelay: isOpen ? `${navItems.length * 100 + 200}ms` : '0ms'
-                }}
+              {/* Mobile action button */}
+              <div className={`mt-16 transition-all duration-500 ease-out ${
+                isOpen
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{
+                transitionDelay: isOpen ? `${navItems.length * 100 + 400}ms` : '0ms'
+              }}
               >
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/get-involved" aria-label="Get involved with Concerned Scientists @ IU">Get Involved</Link>
-                </Button>
-                <Button size="lg" className="bg-science-red text-white" asChild>
-                  <a
-                    href="https://www.facebook.com/CSIUB/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Visit Concerned Scientists @ IU Facebook page (opens in new tab)"
-                  >
-                    Facebook
-                  </a>
+                <Button className="btn-csiu-primary text-lg px-8 py-4" asChild>
+                  <Link href="/get-involved" aria-label="Get involved with Concerned Scientists @ IU">
+                    GET INVOLVED
+                  </Link>
                 </Button>
               </div>
             </div>

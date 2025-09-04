@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "../styles/utilities.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -28,7 +29,7 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
+  --radius: 0; /* SHARP CORNERS ONLY - NO ROUNDED CORNERS */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -38,27 +39,17 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* Updated custom color variables to match new brand colors */
+  /* NEW CSIU BRAND COLORS - STRICTLY ENFORCED */
+  --color-white: #FFFFFF;
+  --color-primary-dark: #2a2a2a; /* Main text and dark elements */
+  --color-accent-primary: #1BA298; /* Primary accent - teal/turquoise */
+  --color-accent-secondary: #9DBB8A; /* Secondary accent - sage green */
+
+  /* Legacy colors for backwards compatibility - will be phased out */
   --color-red: #993333; /* Brand red */
   --color-blue: #2e6399; /* Brand blue */
   --color-green: #257d70; /* Brand green */
   --color-black: #2a2a2a; /* Brand black */
-
-  /* Updated custom secondary color variables to match new brand colors */
-  --color-yellow: #998a2e;  /* Brand yellow */
-  --color-orange: #99612e;  /* Brand orange */
-  --color-purple: #5f2e99;  /* Brand purple */
-  --color-teal: #2e9999;    /* Brand teal */
-  --color-pink: #992e61;    /* Brand pink */
-
-  --color-brown: #664422;   /* Brand brown */
-  --color-cyan: #2e7a99;    /* Brand cyan */
-  --color-lime: #66992e;    /* Brand lime */
-  --color-magenta: #992e7a; /* Brand magenta */
-  --color-olive: #667a2e;   /* Brand olive */
-  --color-indigo: #2e3a99;  /* Brand indigo */
-  --color-sand: #99855c;    /* Brand sand / beige */
-  --color-slate: #3d4c66;   /* Brand slate / gray-blue */
 
   /* Updated typography variables for Poppins */
   --font-heading: var(--font-poppins);
@@ -113,8 +104,65 @@
   }
 }
 
-/* Updated utility classes for new brand colors */
+/* NEW CSIU BRAND COLOR UTILITIES */
 @layer utilities {
+  /* New Brand Colors - Text */
+  .text-csiu-white {
+    color: var(--color-white);
+  }
+  .text-csiu-primary-dark {
+    color: var(--color-primary-dark);
+  }
+  .text-csiu-accent-primary {
+    color: var(--color-accent-primary);
+  }
+  .text-csiu-accent-secondary {
+    color: var(--color-accent-secondary);
+  }
+
+  /* New Brand Colors - Backgrounds */
+  .bg-csiu-white {
+    background-color: var(--color-white);
+  }
+  .bg-csiu-primary-dark {
+    background-color: var(--color-primary-dark);
+  }
+  .bg-csiu-accent-primary {
+    background-color: var(--color-accent-primary);
+  }
+  .bg-csiu-accent-secondary {
+    background-color: var(--color-accent-secondary);
+  }
+
+  /* New Brand Colors - Borders */
+  .border-csiu-white {
+    border-color: var(--color-white);
+  }
+  .border-csiu-primary-dark {
+    border-color: var(--color-primary-dark);
+  }
+  .border-csiu-accent-primary {
+    border-color: var(--color-accent-primary);
+  }
+  .border-csiu-accent-secondary {
+    border-color: var(--color-accent-secondary);
+  }
+
+  /* New Brand Colors - Hover Variants */
+  .hover\:bg-csiu-accent-primary:hover {
+    background-color: var(--color-accent-primary);
+  }
+  .hover\:bg-csiu-accent-secondary:hover {
+    background-color: var(--color-accent-secondary);
+  }
+  .hover\:text-csiu-accent-primary:hover {
+    color: var(--color-accent-primary);
+  }
+  .hover\:text-csiu-accent-secondary:hover {
+    color: var(--color-accent-secondary);
+  }
+
+  /* Legacy science colors - keeping for backwards compatibility */
   .text-science-red {
     color: var(--color-red);
   }
@@ -254,9 +302,105 @@
     font-family: var(--font-body);
   }
 
-  /* Added standardized card shadow utility */
-  .card-shadow {
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  /* CSIU Brand Button Styles - Sharp Corners Only */
+  .btn-csiu-primary {
+    background: var(--color-accent-primary);
+    color: var(--color-white);
+    padding: 16px 40px;
+    border: none;
+    border-radius: 0; /* Sharp corners */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+  }
+  
+  .btn-csiu-primary:hover {
+    background: var(--color-accent-secondary);
+    color: var(--color-white);
+  }
+
+  .btn-csiu-secondary {
+    background: transparent;
+    color: var(--color-accent-primary);
+    padding: 16px 40px;
+    border: 2px solid var(--color-accent-primary);
+    border-radius: 0; /* Sharp corners */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+  }
+  
+  .btn-csiu-secondary:hover {
+    background: var(--color-accent-primary);
+    color: var(--color-white);
+  }
+
+  /* CSIU Typography Scale */
+  .csiu-heading-xl {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--color-primary-dark);
+  }
+  
+  .csiu-heading-lg {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--color-primary-dark);
+  }
+  
+  .csiu-heading-md {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-primary-dark);
+  }
+  
+  .csiu-heading-sm {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-primary-dark);
+  }
+  
+  .csiu-body-lg {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--color-primary-dark);
+  }
+  
+  .csiu-body {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--color-primary-dark);
+  }
+
+  /* Mobile responsive typography */
+  @media (max-width: 768px) {
+    .csiu-heading-xl {
+      font-size: 48px;
+    }
+    
+    .csiu-heading-lg {
+      font-size: 36px;
+    }
+    
+    .csiu-heading-md {
+      font-size: 32px;
+    }
+    
+    .csiu-heading-sm {
+      font-size: 28px;
+    }
+    
+    .csiu-body-lg {
+      font-size: 18px;
+    }
   }
 
   /* Button hover styles - darken only background, preserve text */
@@ -347,6 +491,28 @@
   0% 25%         /* Top left */
 );
 
+  }
+
+  /* Override any existing border-radius - SHARP CORNERS ONLY */
+  *, *::before, *::after {
+    border-radius: 0 !important;
+  }
+
+  /* CSIU Card shadows with sharp corners */
+  .csiu-card-shadow {
+    box-shadow: 0 4px 20px rgba(42, 42, 42, 0.1);
+    border-radius: 0 !important;
+  }
+
+  /* CSIU Navigation styles */
+  .csiu-nav-transparent {
+    background: transparent;
+    transition: background-color 0.3s ease;
+  }
+  
+  .csiu-nav-solid {
+    background: var(--color-primary-dark);
+    transition: background-color 0.3s ease;
   }
 }
 

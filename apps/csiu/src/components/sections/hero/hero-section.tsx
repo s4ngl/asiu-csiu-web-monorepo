@@ -1,10 +1,7 @@
 'use client'
 
 import { Button } from "@/components/ui/primitives/button"
-import { NewsletterSignup } from "@/components/forms/newsletter-signup"
-import { HeroBackground } from "@/components/sections/hero/hero-background"
-import { PageOutcrop } from "@/components/features/page-outcrop"
-import Image from "next/image"
+import { VideoBackground } from "@/components/sections/hero/video-background"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
@@ -16,113 +13,70 @@ interface BreadcrumbItem {
 interface HeroSectionProps {
     title: string
     subtitle: string
-    showLogo?: boolean
-    logoPath?: string
     primaryButtonText?: string
     primaryButtonLink?: string
     secondaryButtonText?: string
     secondaryButtonLink?: string
-    showNewsletter?: boolean
-    backgroundGradient?: string
     className?: string
-    overlayImage?: string
+    videoSrc?: string
+    fallbackImage?: string
     overlayOpacity?: number
-    showPageOutcrop?: boolean
-    breadcrumbItems?: BreadcrumbItem[]
 }
 
 export function HeroSection({
     title,
     subtitle,
-    showLogo = true,
-    logoPath = "/icons/logo.svg",
-    primaryButtonText = "Get Involved",
+    primaryButtonText = "GET INVOLVED",
     primaryButtonLink = "/get-involved",
-    secondaryButtonText = "Donate Now",
-    secondaryButtonLink = "#",
-    showNewsletter = true,
-    backgroundGradient = "from-blue-50 to-red-50",
+    secondaryButtonText = "LEARN MORE",
+    secondaryButtonLink = "/about",
     className = "",
-    overlayImage,
-    overlayOpacity = 1,
-    showPageOutcrop = false,
-    breadcrumbItems
+    videoSrc,
+    fallbackImage = "/images/overlays/overlay-home.JPG",
+    overlayOpacity = 0.4
 }: HeroSectionProps) {
     return (
-        <section className={`relative bg-gradient-to-r ${backgroundGradient} pt-36 pb-32 overflow-hidden min-h-[200px] ${className}`}>
-            <HeroBackground
-                starColor="#FFFFFF"
-                starSize={2}
-                starCount={30}
-                className="opacity-100"
-                overlayImage={overlayImage}
+        <section className={`relative ${className}`}>
+            <VideoBackground
+                videoSrc={videoSrc}
+                fallbackImage={fallbackImage}
                 overlayOpacity={overlayOpacity}
-            />
-            <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col justify-center min-h-[200px]">
-                {/* {showLogo && (
-                    <div className="mb-8">
-                        <div className="w-48 h-48 mx-auto relative">
-                            <Image
-                                src={logoPath}
-                                alt="ASIU Logo"
-                                width={108}
-                                height={108}
-                                className="w-full h-full relative z-10"
-                                priority
-                            />
+            >
+                <div className="flex items-center justify-start h-full">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                        <div className="max-w-4xl">
+                            {/* Headline */}
+                            <h1 className="csiu-heading-lg text-csiu-white mb-6 text-left">
+                                {title}
+                            </h1>
+
+                            {/* Subheadline */}
+                            <p className="csiu-body-lg text-csiu-white mb-10 max-w-2xl text-left">
+                                {subtitle}
+                            </p>
+
+                            {/* CTA Buttons */}
+                            <div className="flex flex-col sm:flex-row gap-6">
+                                {primaryButtonText && (
+                                    <Link href={primaryButtonLink}>
+                                        <Button className="btn-csiu-primary">
+                                            {primaryButtonText}
+                                        </Button>
+                                    </Link>
+                                )}
+
+                                {secondaryButtonText && (
+                                    <Link href={secondaryButtonLink}>
+                                        <Button className="btn-csiu-secondary">
+                                            {secondaryButtonText}
+                                        </Button>
+                                    </Link>
+                                )}
+                            </div>
                         </div>
                     </div>
-                )} */}
-
-                <h1 className="font-heading text-5xl md:text-7xl font-bold text-white mb-8" dangerouslySetInnerHTML={{ __html: title }} />
-
-                <p className="text-xl text-white max-w-3xl mx-auto">
-                    {subtitle}
-                </p>
-
-                {(primaryButtonText || secondaryButtonText) && (<div className="flex flex-col sm:flex-row gap-4 justify-center mb-6 mt-10">
-                    {primaryButtonText && (
-                        <Link href={primaryButtonLink}>
-                            <Button size="lg" className="bg-science-blue text-white">
-                                {primaryButtonText}
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
-                        </Link>
-                    )}
-
-                    {secondaryButtonText && (
-                        secondaryButtonLink?.startsWith('http') ? (
-                            <a href={secondaryButtonLink} target="_blank" rel="noopener noreferrer">
-                                <Button
-                                    size="lg"
-                                    className="border-science-green text-science-green bg-white hover:text-science-green"
-                                >
-                                    {secondaryButtonText}
-                                </Button>
-                            </a>
-                        ) : (
-                            <Link href={secondaryButtonLink || "#"}>
-                                <Button
-                                    size="lg"
-                                    className="border-science-green text-science-green bg-white hover:text-science-green"
-                                >
-                                    {secondaryButtonText}
-                                </Button>
-                            </Link>
-                        )
-                    )}
-                </div>)}
-
-                {/* {showNewsletter && <NewsletterSignup />} */}
-            </div>
-
-            {/* Page Outcrop with optional breadcrumbs */}
-            {showPageOutcrop && (
-                <PageOutcrop
-                    breadcrumbItems={breadcrumbItems}
-                    showAffiliateText={!breadcrumbItems || breadcrumbItems.length === 0}
-                />
-            )}
+                </div>
+            </VideoBackground>
         </section>
     )
 }

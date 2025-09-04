@@ -1,0 +1,250 @@
+/* CSIU Utility Classes for Common Patterns */
+
+/* Full-width sections */
+.csiu-full-width {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+/* Hero video container */
+.csiu-hero-video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.csiu-hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.csiu-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(42, 42, 42, 0.4);
+  z-index: 2;
+}
+
+.csiu-hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Asymmetric layouts */
+.csiu-asymmetric-grid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 3rem;
+}
+
+@media (max-width: 768px) {
+  .csiu-asymmetric-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Full-bleed images */
+.csiu-full-bleed-image {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+/* Text content with constrained width */
+.csiu-text-content {
+  max-width: 600px;
+}
+
+/* Large quote treatment */
+.csiu-quote {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 120px 0;
+  background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+}
+
+.csiu-quote::before {
+  content: '"';
+  font-size: 120px;
+  color: var(--color-accent-primary);
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+}
+
+/* Hover effects */
+.csiu-hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.csiu-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(42, 42, 42, 0.15);
+}
+
+.csiu-hover-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.csiu-hover-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-accent-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.csiu-hover-overlay:hover::after {
+  opacity: 0.8;
+}
+
+/* Scroll animations */
+.csiu-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.csiu-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Grid layouts */
+.csiu-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+@media (max-width: 768px) {
+  .csiu-grid-3 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Card layouts */
+.csiu-card {
+  background: var(--color-white);
+  box-shadow: 0 4px 20px rgba(42, 42, 42, 0.1);
+  border-radius: 0;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.csiu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(42, 42, 42, 0.15);
+}
+
+.csiu-card-image {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.csiu-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.csiu-card:hover .csiu-card-image img {
+  transform: scale(1.05);
+}
+
+/* Section spacing */
+.csiu-section {
+  padding: 120px 0;
+}
+
+@media (max-width: 768px) {
+  .csiu-section {
+    padding: 80px 0;
+  }
+}
+
+/* Container constraints */
+.csiu-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .csiu-container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .csiu-container {
+    padding: 0 3rem;
+  }
+}
+
+/* Responsive breakpoints utility classes */
+.csiu-hidden-mobile {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .csiu-hidden-mobile {
+    display: none;
+  }
+}
+
+.csiu-hidden-desktop {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .csiu-hidden-desktop {
+    display: block;
+  }
+}
+
+/* Generous whitespace */
+.csiu-spacing-xs { margin: 1rem 0; }
+.csiu-spacing-sm { margin: 2rem 0; }
+.csiu-spacing-md { margin: 3rem 0; }
+.csiu-spacing-lg { margin: 4rem 0; }
+.csiu-spacing-xl { margin: 6rem 0; }
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -27,9 +27,7 @@ export default function ContactPage() {
   const faqData: FAQItem[] = [
     {
       question: "How can I get involved with Concerned Scientists @ IU?",
-      answer: "There are many ways to get involved! You can attend our events, join our working groups,
-      volunteer for advocacy campaigns, or contribute to our research projects.Visit our
-        <Link href = "/get-involved" className = "text-blue-600 hover:underline ml-1">Get Involved</Link> page for more details."
+      answer: "There are many ways to get involved! You can attend our events, join our working groups, volunteer for advocacy campaigns, or contribute to our research projects. Visit our Get Involved page for more details."
     },
 {
   question: "What types of events do you host?",
