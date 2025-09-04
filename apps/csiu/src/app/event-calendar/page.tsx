@@ -9,7 +9,7 @@ export const metadata = getPageMetadata("event-calendar")
 
 export default function EventCalendarPage() {
   return (
-    <LayoutWrapper>
+    <LayoutWrapper id="top">
       {/* Hero Section */}
       <HeroSection
         title="Event Calendar"
@@ -24,11 +24,11 @@ export default function EventCalendarPage() {
             <Calendar className="w-24 h-24 text-csiu-accent-primary mx-auto mb-8" />
             <h2 className="csiu-heading-md mb-8">Events Calendar Coming Soon</h2>
             <p className="csiu-body-lg mb-8">
-              We're working on a comprehensive events calendar to help you stay informed about 
+              We're working on a comprehensive events calendar to help you stay informed about
               upcoming science advocacy opportunities, workshops, forums, and community events.
             </p>
             <p className="csiu-body text-gray-600">
-              In the meantime, you can stay updated through our other channels and submit your own events 
+              In the meantime, you can stay updated through our other channels and submit your own events
               for consideration.
             </p>
           </div>
@@ -39,7 +39,7 @@ export default function EventCalendarPage() {
               <Plus className="w-12 h-12 text-csiu-accent-primary mx-auto mb-6" />
               <h3 className="csiu-heading-sm mb-4">Submit an Event</h3>
               <p className="csiu-body mb-6">
-                Have an event related to science advocacy, policy, or education? 
+                Have an event related to science advocacy, policy, or education?
                 Submit it for inclusion in our upcoming calendar.
               </p>
               <Button className="btn-csiu-primary" asChild>
@@ -53,7 +53,7 @@ export default function EventCalendarPage() {
               <Bell className="w-12 h-12 text-csiu-accent-primary mx-auto mb-6" />
               <h3 className="csiu-heading-sm mb-4">Stay Notified</h3>
               <p className="csiu-body mb-6">
-                Get updates about new events and opportunities through our 
+                Get updates about new events and opportunities through our
                 newsletter and social media channels.
               </p>
               <Button className="btn-csiu-secondary" asChild>
@@ -91,14 +91,13 @@ export default function EventCalendarPage() {
       {/* Footer with Back to Top */}
       <section className="py-12 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Button 
-            variant="ghost" 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-csiu-accent-primary hover:text-csiu-primary-dark"
+          <a
+            href="#top"
+            className="inline-flex items-center px-4 py-2 text-csiu-accent-primary hover:text-csiu-primary-dark transition-colors"
           >
             <ArrowUp className="w-5 h-5 mr-2" />
             BACK TO TOP
-          </Button>
+          </a>
         </div>
       </section>
     </LayoutWrapper>
