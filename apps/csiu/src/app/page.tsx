@@ -5,6 +5,8 @@ import { LayoutWrapper } from "@/components/layout/layout-wrapper"
 import { HeroSection } from "@/components/sections/hero/hero-section"
 import { LatestNewsCard } from "@/components/cards/latest-news-card"
 import { EventCard } from "@/components/cards/event-card"
+import { ImageGallery } from "@/components/ui/ImageGallery"
+import { ScrollAnimation } from "@/components/hooks/useScrollAnimation"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Users, Megaphone, BookOpen, Calendar, ExternalLink, Quote, TrendingUp, Award, Target } from "lucide-react"
@@ -89,6 +91,22 @@ export default async function HomePage() {
           secondaryButtonLink="/what-we-do"
           fallbackImage="/images/overlays/overlay-home.JPG"
         />
+
+        {/* Image Gallery Section */}
+        <section className="py-24 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ScrollAnimation className="text-center mb-16">
+              <h2 className="csiu-heading-md mb-8">Science Advocacy in Action</h2>
+              <p className="csiu-body-lg max-w-3xl mx-auto">
+                Explore moments from our ongoing work to promote scientific integrity and evidence-based policy making. 
+                From community forums to legislative meetings, see how we're making a difference.
+              </p>
+            </ScrollAnimation>
+            <ScrollAnimation delay={200}>
+              <ImageGallery />
+            </ScrollAnimation>
+          </div>
+        </section>
 
         {/* News Highlights Section */}
         <section className="py-24 bg-csiu-white">
@@ -264,71 +282,79 @@ export default async function HomePage() {
         {/* Mission & Values Section */}
         <section className="py-24 bg-csiu-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
+            <ScrollAnimation className="text-center mb-20">
               <h2 className="csiu-heading-md mb-8">Our Mission & Core Aims</h2>
               <p className="csiu-body-lg max-w-4xl mx-auto">
                 Concerned Scientists at Indiana University, Bloomington is a coalition of scientists and their supporters 
                 formed in response to attacks on science. Our mission is to strengthen the essential role of science and 
                 evidence-based decision-making at all levels.
               </p>
-            </div>
+            </ScrollAnimation>
 
             <div className="grid md:grid-cols-2 gap-12">
               {/* Accurate Representation */}
-              <div className="flex items-start space-x-6">
-                <div className="w-16 h-16 bg-csiu-accent-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Target className="w-8 h-8 text-csiu-white" />
+              <ScrollAnimation delay={100}>
+                <div className="flex items-start space-x-6">
+                  <div className="w-16 h-16 bg-csiu-accent-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Target className="w-8 h-8 text-csiu-white" />
+                  </div>
+                  <div>
+                    <h3 className="csiu-heading-sm mb-4">Promote Accurate Representation</h3>
+                    <p className="csiu-body">
+                      We work to promote the accurate representation of science in the media, in education, 
+                      and in the design of legislation.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="csiu-heading-sm mb-4">Promote Accurate Representation</h3>
-                  <p className="csiu-body">
-                    We work to promote the accurate representation of science in the media, in education, 
-                    and in the design of legislation.
-                  </p>
-                </div>
-              </div>
+              </ScrollAnimation>
 
               {/* Public Engagement */}
-              <div className="flex items-start space-x-6">
-                <div className="w-16 h-16 bg-csiu-accent-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Users className="w-8 h-8 text-csiu-white" />
+              <ScrollAnimation delay={200}>
+                <div className="flex items-start space-x-6">
+                  <div className="w-16 h-16 bg-csiu-accent-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Users className="w-8 h-8 text-csiu-white" />
+                  </div>
+                  <div>
+                    <h3 className="csiu-heading-sm mb-4">Engage with the Public</h3>
+                    <p className="csiu-body">
+                      We communicate science to the public, especially as it relates to core issues 
+                      influenced by public policy.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="csiu-heading-sm mb-4">Engage with the Public</h3>
-                  <p className="csiu-body">
-                    We communicate science to the public, especially as it relates to core issues 
-                    influenced by public policy.
-                  </p>
-                </div>
-              </div>
+              </ScrollAnimation>
 
               {/* Scientist Participation */}
-              <div className="flex items-start space-x-6">
-                <div className="w-16 h-16 bg-csiu-accent-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Megaphone className="w-8 h-8 text-csiu-white" />
+              <ScrollAnimation delay={300}>
+                <div className="flex items-start space-x-6">
+                  <div className="w-16 h-16 bg-csiu-accent-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Megaphone className="w-8 h-8 text-csiu-white" />
+                  </div>
+                  <div>
+                    <h3 className="csiu-heading-sm mb-4">Promote Scientist Participation</h3>
+                    <p className="csiu-body">
+                      We encourage and facilitate the participation of scientists in policy-making processes 
+                      at all levels of government.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="csiu-heading-sm mb-4">Promote Scientist Participation</h3>
-                  <p className="csiu-body">
-                    We encourage and facilitate the participation of scientists in policy-making processes 
-                    at all levels of government.
-                  </p>
-                </div>
-              </div>
+              </ScrollAnimation>
 
               {/* Federal Funding */}
-              <div className="flex items-start space-x-6">
-                <div className="w-16 h-16 bg-csiu-accent-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                  <BookOpen className="w-8 h-8 text-csiu-white" />
+              <ScrollAnimation delay={400}>
+                <div className="flex items-start space-x-6">
+                  <div className="w-16 h-16 bg-csiu-accent-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                    <BookOpen className="w-8 h-8 text-csiu-white" />
+                  </div>
+                  <div>
+                    <h3 className="csiu-heading-sm mb-4">Support Federal Funding</h3>
+                    <p className="csiu-body">
+                      We advocate for continued federal funding for independent scientific research and 
+                      defend research from politically motivated attacks.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="csiu-heading-sm mb-4">Support Federal Funding</h3>
-                  <p className="csiu-body">
-                    We advocate for continued federal funding for independent scientific research and 
-                    defend research from politically motivated attacks.
-                  </p>
-                </div>
-              </div>
+              </ScrollAnimation>
             </div>
           </div>
         </section>
