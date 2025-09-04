@@ -20,6 +20,12 @@ const nextConfig = {
         port: '',
         pathname: '/images/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
     // Performance optimizations
     minimumCacheTTL: 31536000, // 1 year
