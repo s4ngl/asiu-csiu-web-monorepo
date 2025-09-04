@@ -374,6 +374,295 @@ export const pageMetadata = {
       images: ["https://www.csiub.org/icons/logo.svg"],
     },
   },
+  "what-we-do": {
+    title: "Our Mission | Concerned Scientists @ IU",
+    description: "Learn about the mission and core aims of Concerned Scientists @ IU (CSIU). We are a coalition of scientists working to strengthen the role of science in evidence-based decision making.",
+    keywords: [
+      "mission statement",
+      "CSIU mission",
+      "science advocacy goals",
+      "evidence-based policy",
+      "scientific integrity",
+      "coalition of scientists",
+      "Indiana University",
+      "Bloomington"
+    ],
+    openGraph: {
+      title: "Our Mission | Concerned Scientists @ IU",
+      description: "Learn about the mission and core aims of Concerned Scientists @ IU (CSIU). We are a coalition of scientists working to strengthen the role of science in evidence-based decision making.",
+      url: "https://www.csiub.org/what-we-do",
+      images: [
+        {
+          url: "https://www.csiub.org/images/overlays/overlay-about.JPG",
+          width: 1200,
+          height: 630,
+          alt: "Our Mission - Concerned Scientists @ IU",
+        },
+      ],
+    },
+    twitter: {
+      title: "Our Mission | Concerned Scientists @ IU",
+      description: "Learn about the mission and core aims of Concerned Scientists @ IU (CSIU).",
+      images: ["https://www.csiub.org/images/overlays/overlay-about.JPG"],
+    },
+  },
+  "why-should-you-care": {
+    title: "Why Should You Care? | Concerned Scientists @ IU",
+    description: "Understand why science policy matters to scientists and the public. Learn about threats to research funding and the importance of evidence-based decision making.",
+    keywords: [
+      "science policy importance",
+      "research funding threats",
+      "why science matters",
+      "evidence-based decisions",
+      "public interest science",
+      "federal funding cuts",
+      "Indiana University",
+      "Bloomington"
+    ],
+    openGraph: {
+      title: "Why Should You Care? | Concerned Scientists @ IU",
+      description: "Understand why science policy matters to scientists and the public. Learn about threats to research funding and the importance of evidence-based decision making.",
+      url: "https://www.csiub.org/why-should-you-care",
+      images: [
+        {
+          url: "https://www.csiub.org/images/overlays/overlay-about.JPG",
+          width: 1200,
+          height: 630,
+          alt: "Why Should You Care - Concerned Scientists @ IU",
+        },
+      ],
+    },
+    twitter: {
+      title: "Why Should You Care? | Concerned Scientists @ IU",
+      description: "Understand why science policy matters to scientists and the public.",
+      images: ["https://www.csiub.org/images/overlays/overlay-about.JPG"],
+    },
+  },
+  "phoning-your-legislator": {
+    title: "Phoning Your Legislator | Concerned Scientists @ IU",
+    description: "Learn how to effectively contact your representatives about science policy issues. Get contact information and sample scripts for advocacy calls.",
+    keywords: [
+      "contact legislators",
+      "science advocacy calls",
+      "legislator contact info",
+      "phone script advocacy",
+      "Indiana representatives",
+      "grassroots advocacy",
+      "Indiana University",
+      "Bloomington"
+    ],
+    openGraph: {
+      title: "Phoning Your Legislator | Concerned Scientists @ IU",
+      description: "Learn how to effectively contact your representatives about science policy issues. Get contact information and sample scripts for advocacy calls.",
+      url: "https://www.csiub.org/phoning-your-legislator",
+      images: [
+        {
+          url: "https://www.csiub.org/images/overlays/overlay-contact.JPG",
+          width: 1200,
+          height: 630,
+          alt: "Phoning Your Legislator - Concerned Scientists @ IU",
+        },
+      ],
+    },
+    twitter: {
+      title: "Phoning Your Legislator | Concerned Scientists @ IU",
+      description: "Learn how to effectively contact your representatives about science policy issues.",
+      images: ["https://www.csiub.org/images/overlays/overlay-contact.JPG"],
+    },
+  },
+  "working-groups": {
+    title: "Working Groups | Concerned Scientists @ IU",
+    description: "Join one of our four working groups: Legislative Advocacy, Education & Outreach, Communications, and Events. Get involved in science advocacy.",
+    keywords: [
+      "working groups",
+      "join CSIU",
+      "legislative advocacy",
+      "education outreach",
+      "science communication",
+      "events planning",
+      "volunteer opportunities",
+      "Indiana University",
+      "Bloomington"
+    ],
+    openGraph: {
+      title: "Working Groups | Concerned Scientists @ IU",
+      description: "Join one of our four working groups: Legislative Advocacy, Education & Outreach, Communications, and Events. Get involved in science advocacy.",
+      url: "https://www.csiub.org/working-groups",
+      images: [
+        {
+          url: "https://www.csiub.org/images/overlays/overlay-about.JPG",
+          width: 1200,
+          height: 630,
+          alt: "Working Groups - Concerned Scientists @ IU",
+        },
+      ],
+    },
+    twitter: {
+      title: "Working Groups | Concerned Scientists @ IU",
+      description: "Join one of our four working groups and get involved in science advocacy.",
+      images: ["https://www.csiub.org/images/overlays/overlay-about.JPG"],
+    },
+  },
+  "how-much-time-do-you-have": {
+    title: "How Much Time Do You Have? | Concerned Scientists @ IU",
+    description: "Find the right level of engagement for your schedule. From 5-second actions to long-term commitment, there are meaningful ways to support science advocacy.",
+    keywords: [
+      "time commitment levels",
+      "science advocacy engagement",
+      "volunteer opportunities",
+      "quick actions",
+      "long-term involvement",
+      "tiered engagement",
+      "Indiana University",
+      "Bloomington"
+    ],
+    openGraph: {
+      title: "How Much Time Do You Have? | Concerned Scientists @ IU",
+      description: "Find the right level of engagement for your schedule. From 5-second actions to long-term commitment, there are meaningful ways to support science advocacy.",
+      url: "https://www.csiub.org/how-much-time-do-you-have",
+      images: [
+        {
+          url: "https://www.csiub.org/images/overlays/overlay-get-involved.JPG",
+          width: 1200,
+          height: 630,
+          alt: "How Much Time Do You Have - Concerned Scientists @ IU",
+        },
+      ],
+    },
+    twitter: {
+      title: "How Much Time Do You Have? | Concerned Scientists @ IU",
+      description: "Find the right level of engagement for your schedule in science advocacy.",
+      images: ["https://www.csiub.org/images/overlays/overlay-get-involved.JPG"],
+    },
+  },
+  "submit-news-and-events": {
+    title: "Submit News and Events | Concerned Scientists @ IU",
+    description: "Share important science advocacy news and events with our community. Submit content for our news feed or events calendar.",
+    keywords: [
+      "submit news",
+      "submit events",
+      "community submissions",
+      "science news",
+      "advocacy events",
+      "content submission",
+      "Indiana University",
+      "Bloomington"
+    ],
+    openGraph: {
+      title: "Submit News and Events | Concerned Scientists @ IU",
+      description: "Share important science advocacy news and events with our community. Submit content for our news feed or events calendar.",
+      url: "https://www.csiub.org/submit-news-and-events",
+      images: [
+        {
+          url: "https://www.csiub.org/images/overlays/overlay-contact.JPG",
+          width: 1200,
+          height: 630,
+          alt: "Submit News and Events - Concerned Scientists @ IU",
+        },
+      ],
+    },
+    twitter: {
+      title: "Submit News and Events | Concerned Scientists @ IU",
+      description: "Share important science advocacy news and events with our community.",
+      images: ["https://www.csiub.org/images/overlays/overlay-contact.JPG"],
+    },
+  },
+  "weekly-news-bulletins": {
+    title: "Weekly News Bulletins | Concerned Scientists @ IU",
+    description: "Stay informed with our latest weekly news bulletin covering global news, regional developments, opinion & analysis, and action opportunities for science advocates.",
+    keywords: [
+      "weekly news bulletin",
+      "science policy news",
+      "advocacy updates",
+      "global science news",
+      "regional developments",
+      "policy analysis",
+      "Indiana University",
+      "Bloomington"
+    ],
+    openGraph: {
+      title: "Weekly News Bulletins | Concerned Scientists @ IU",
+      description: "Stay informed with our latest weekly news bulletin covering global news, regional developments, opinion & analysis, and action opportunities for science advocates.",
+      url: "https://www.csiub.org/weekly-news-bulletins",
+      images: [
+        {
+          url: "https://www.csiub.org/images/overlays/overlay-news.JPG",
+          width: 1200,
+          height: 630,
+          alt: "Weekly News Bulletins - Concerned Scientists @ IU",
+        },
+      ],
+    },
+    twitter: {
+      title: "Weekly News Bulletins | Concerned Scientists @ IU",
+      description: "Stay informed with our latest weekly news bulletin covering science policy developments.",
+      images: ["https://www.csiub.org/images/overlays/overlay-news.JPG"],
+    },
+  },
+  "event-calendar": {
+    title: "Event Calendar | Concerned Scientists @ IU",
+    description: "Stay informed about upcoming science advocacy events and opportunities. Check back soon for our comprehensive events calendar.",
+    keywords: [
+      "event calendar",
+      "upcoming events",
+      "science advocacy events",
+      "workshops",
+      "forums",
+      "community events",
+      "Indiana University",
+      "Bloomington"
+    ],
+    openGraph: {
+      title: "Event Calendar | Concerned Scientists @ IU",
+      description: "Stay informed about upcoming science advocacy events and opportunities. Check back soon for our comprehensive events calendar.",
+      url: "https://www.csiub.org/event-calendar",
+      images: [
+        {
+          url: "https://www.csiub.org/images/overlays/overlay-get-involved.JPG",
+          width: 1200,
+          height: 630,
+          alt: "Event Calendar - Concerned Scientists @ IU",
+        },
+      ],
+    },
+    twitter: {
+      title: "Event Calendar | Concerned Scientists @ IU",
+      description: "Stay informed about upcoming science advocacy events and opportunities.",
+      images: ["https://www.csiub.org/images/overlays/overlay-get-involved.JPG"],
+    },
+  },
+  "bulletin-archives": {
+    title: "Weekly News Bulletin Archives | Concerned Scientists @ IU",
+    description: "Access our complete archive of weekly news bulletins to track science policy developments and advocacy opportunities over time.",
+    keywords: [
+      "bulletin archives",
+      "news archive",
+      "historical bulletins",
+      "science policy history",
+      "advocacy timeline",
+      "policy developments",
+      "Indiana University",
+      "Bloomington"
+    ],
+    openGraph: {
+      title: "Weekly News Bulletin Archives | Concerned Scientists @ IU",
+      description: "Access our complete archive of weekly news bulletins to track science policy developments and advocacy opportunities over time.",
+      url: "https://www.csiub.org/bulletin-archives",
+      images: [
+        {
+          url: "https://www.csiub.org/images/overlays/overlay-news.JPG",
+          width: 1200,
+          height: 630,
+          alt: "Weekly News Bulletin Archives - Concerned Scientists @ IU",
+        },
+      ],
+    },
+    twitter: {
+      title: "Weekly News Bulletin Archives | Concerned Scientists @ IU",
+      description: "Access our complete archive of weekly news bulletins.",
+      images: ["https://www.csiub.org/images/overlays/overlay-news.JPG"],
+    },
+  },
 }
 
 // Structured data for different page types
