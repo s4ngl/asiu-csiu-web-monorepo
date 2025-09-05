@@ -1,135 +1,182 @@
-# Turborepo starter
+# ASIU-CSIU Web Monorepo
 
-This Turborepo starter is maintained by the Turborepo core team.
+A comprehensive web platform serving the Alberta Students in Information Sciences (ASIU) and Computer Science Initiatives Unit (CSIU) communities. This monorepo contains three interconnected applications built with modern web technologies.
 
-## Using this example
+## 🌟 Overview
 
-Run the following command:
+This project provides digital infrastructure for student organizations, featuring public websites for community engagement and a content management system for easy updates.
 
-```sh
-npx create-turbo@latest
-```
+### Applications
 
-## What's inside?
+- **🎓 ASIU Website** - Public site for Alberta Students in Information Sciences
+- **💻 CSIU Website** - Academic-focused platform for Computer Science Initiatives Unit  
+- **⚙️ CMS System** - Content management system for both websites
 
-This Turborepo includes the following packages/apps:
+## 🚀 Quick Start
 
-### Apps and Packages
+### Prerequisites
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- **Node.js** 18+ ([Download here](https://nodejs.org/))
+- **Git** ([Download here](https://git-scm.com/downloads))
+- **PostgreSQL** (for database)
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+### Getting Started
 
-### Utilities
+1. **Clone and setup:**
+   ```bash
+   git clone https://github.com/s4ngl/asiu-csiu-web-monorepo.git
+   cd asiu-csiu-web-monorepo
+   npm install
+   ```
 
-This Turborepo has some additional tools already setup for you:
+2. **Start development:**
+   ```bash
+   # Run ASIU website
+   npm run dev:asiu
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+   # Run CSIU website  
+   npm run dev:csiu
 
-### Build
+   # Run CMS
+   npm run dev:cms
 
-To build all apps and packages, run the following command:
+   # Run all applications
+   npm run dev
+   ```
 
-```
-cd my-turborepo
+3. **Open in browser:**
+   - ASIU: `http://localhost:3000`
+   - CSIU: `http://localhost:3001`
+   - CMS: `http://localhost:3002`
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
+## 📚 Documentation
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
+**New to the project?** Start with our [Onboarding Guide](/docs/onboarding.md)
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+### For Contributors
+- 📖 [Onboarding Guide](/docs/onboarding.md) - Step-by-step setup for new contributors
+- 🤝 [Contributing Guidelines](/CONTRIBUTING.md) - How to contribute code
+- ❓ [FAQ](/docs/faq.md) - Common questions and solutions
+- 🏗️ [Architecture Guide](/docs/architecture.md) - Technical system overview
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+### For Maintainers  
+- 👥 [Maintainers Guide](/MAINTAINERS.md) - Current team and contacts
+- 🔧 [Admin Guide](/docs/admin-guide.md) - Infrastructure management
+- 🚀 [Deployment Guide](/docs/deployment.md) - Deploy and manage releases
+- 🌐 [Domain Configuration](/docs/domain-config.md) - DNS and domain setup
+- ⚙️ [Environment Setup](/docs/env-setup.md) - Environment variables and config
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+### Project Information
+- 📋 [Changelog](/docs/changelog.md) - Project updates and version history
+- 📜 [Code of Conduct](/CODE_OF_CONDUCT.md) - Community guidelines
+- ⚖️ [License](/LICENSE.md) - Project license
 
-### Develop
+## 🛠️ Technology Stack
 
-To develop all apps and packages, run the following command:
+### Frontend
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Accessible component library
 
-```
-cd my-turborepo
+### Backend & Infrastructure
+- **Node.js** - Runtime environment
+- **PostgreSQL** - Database
+- **NextAuth.js** - Authentication
+- **AWS S3** - File storage
+- **Vercel** - Hosting and deployment
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+### Development Tools
+- **Turborepo** - Monorepo management
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **TypeScript** - Static type checking
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+## 🏗️ Project Structure
 
 ```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
+asiu-csiu-web-monorepo/
+├── apps/
+│   ├── asiu/              # ASIU website
+│   ├── csiu/              # CSIU website
+│   └── cms/               # Content management system
+├── packages/
+│   ├── ui/                # Shared React components
+│   ├── eslint-config/     # Shared ESLint configuration
+│   └── typescript-config/ # Shared TypeScript configuration
+├── docs/                  # Documentation
+└── README.md              # This file
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## 🔧 Available Scripts
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+```bash
+# Development
+npm run dev              # Start all apps in development mode
+npm run dev:asiu         # Start ASIU website only
+npm run dev:csiu         # Start CSIU website only  
+npm run dev:cms          # Start CMS only
 
+# Building
+npm run build            # Build all applications
+npm run build:asiu       # Build ASIU website only
+npm run build:csiu       # Build CSIU website only
+npm run build:cms        # Build CMS only
+
+# Code Quality
+npm run lint             # Run ESLint on all apps
+npm run format           # Format code with Prettier
+npm run check-types      # Run TypeScript type checking
 ```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
+## 🤝 Contributing
 
-## Useful Links
+We welcome contributions from students and developers of all skill levels!
 
-Learn more about the power of Turborepo:
+1. **Read our guides:**
+   - [Onboarding Guide](/docs/onboarding.md) for setup instructions
+   - [Contributing Guidelines](/CONTRIBUTING.md) for development workflow
+   - [FAQ](/docs/faq.md) for common questions
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+2. **Find an issue to work on:**
+   - Look for `good first issue` labels for beginners
+   - Check `help wanted` labels for contribution opportunities
+
+3. **Get help:**
+   - Join our team communication channels [UPDATE MAINTAINERS: Add links]
+   - Ask questions in GitHub issues
+   - Contact mentors listed in [Maintainers](/MAINTAINERS.md)
+
+## 🏫 About the Organizations
+
+### ASIU (Alberta Students in Information Sciences)
+A student organization supporting students across all information sciences disciplines, fostering community, professional development, and academic success.
+
+### CSIU (Computer Science Initiatives Unit)  
+An academic-focused group promoting computer science education, research collaboration, and career development within the university community.
+
+## 📞 Support & Contact
+
+- **Technical Issues:** Create a [GitHub Issue](https://github.com/s4ngl/asiu-csiu-web-monorepo/issues)
+- **General Questions:** See our [FAQ](/docs/faq.md)
+- **Team Contact:** Check [Maintainers Guide](/MAINTAINERS.md)
+- **Security Issues:** Contact maintainers privately
+
+## 📄 License
+
+This project is licensed under the [MIT License](/LICENSE.md) - see the file for details.
+
+## 🙏 Acknowledgments
+
+- Built with [Turborepo](https://turborepo.com/) for monorepo management
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
+- Hosted on [Vercel](https://vercel.com/) for reliable deployment
+- Thanks to all [contributors](/MAINTAINERS.md) and community members
+
+---
+
+**Getting Started?** 👉 Check out our [Onboarding Guide](/docs/onboarding.md)  
+**Need Help?** 👉 See our [FAQ](/docs/faq.md) or [create an issue](https://github.com/s4ngl/asiu-csiu-web-monorepo/issues)
+
+---
+*Last updated: [UPDATE DATE] | Maintained by [ASIU-CSIU Development Team](/MAINTAINERS.md)*
